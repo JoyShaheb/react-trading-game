@@ -5,9 +5,7 @@ import NavLink from "./NavLink";
 import {
   HomeIcon,
   ChartPieIcon as DashboardIcon,
-  DocumentChartBarIcon as DocumentsIcon,
   CurrencyDollarIcon,
-  UserCircleIcon as UserIcon,
   ShoppingBagIcon as ProductIcon,
   // ArrowRightOnRectangleIcon as SignoutIcon,
   // ArrowLeftOnRectangleIcon as SigninIcon,

@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, Products, ProfitCalculator, SwapProfits } from "./pages";
 import Sidebar from "./Components/SideBar/SideBar";
