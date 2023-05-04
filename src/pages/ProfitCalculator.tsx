@@ -58,7 +58,7 @@ const ProfitCalculator = () => {
     setData({
       ...data,
       totalFees,
-      Net: NetProfit,
+      Net: +NetProfit.toFixed(4),
     });
   }, [data.buy, data.sell, data.shares, data.feesPercent]);
 
