@@ -50,14 +50,15 @@ const ProfitCalculator = () => {
   };
 
   useEffect(() => {
-    const buyFee = (data.buy * data.shares * data.feesPercent) / 100;
-    const sellFee = (data.sell * data.shares * data.feesPercent) / 100;
+    const { buy, sell, shares, feesPercent } = data;
+    const buyFee = (buy * shares * feesPercent) / 100;
+    const sellFee = (sell * shares * feesPercent) / 100;
     const totalFees = buyFee + sellFee;
-    const Net = (data.sell - data.buy) * data.shares - totalFees;
+    const NetProfit = (sell - buy) * shares - totalFees;
     setData({
       ...data,
       totalFees,
-      Net,
+      Net: NetProfit,
     });
   }, [data.buy, data.sell, data.shares, data.feesPercent]);
 
@@ -86,7 +87,7 @@ const ProfitCalculator = () => {
                     color="text-green-400"
                     currency={data.currency}
                     text={text}
-                    digits={+data.Net.toFixed(3)}
+                    digits={+data.Net}
                   />
                 )}
 
@@ -95,7 +96,7 @@ const ProfitCalculator = () => {
                     color="text-red-400"
                     currency={data.currency}
                     text={text}
-                    digits={+data.Net.toFixed(3)}
+                    digits={+data.Net}
                   />
                 )}
 
@@ -104,7 +105,7 @@ const ProfitCalculator = () => {
                     color="text-red-400"
                     currency={data.currency}
                     text="No Profit / Loss"
-                    digits={+data.Net.toFixed(3)}
+                    digits={+data.Net}
                   />
                 )}
               </div>
@@ -112,7 +113,7 @@ const ProfitCalculator = () => {
                 color="text-blue-400"
                 currency={data.currency}
                 text="Total Fees"
-                digits={+data.totalFees.toFixed(3)}
+                digits={+data.totalFees}
               />
             </div>
             <form className="space-y-4 md:space-y-4" onSubmit={handleSubmit}>
